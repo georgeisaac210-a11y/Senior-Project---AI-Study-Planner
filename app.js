@@ -110,7 +110,7 @@ $('planBtn').onclick = async () => {
   const hoursPerWeek = Number($('hours').value);
   $('planBtn').disabled = true;
   $('planBtn').textContent = 'Building your plan...';
-  const { data, error } = await sb.functions.invoke('plan', { body: { courses, hoursPerWeek, notes: $('notes').value } });
+  const { data, error } = await sb.functions.invoke('bright-task', { body: { courses, hoursPerWeek, notes: $('notes').value } });
   if (error || !data || !data.plan) {
     $('planMsg').textContent = (data && data.error) || 'The planner could not be reached. Try again in a minute.';
   } else {
