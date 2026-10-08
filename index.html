@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Study Planner</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700&family=Newsreader:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="top">
+    <h1>Study Planner</h1>
+    <div id="who" hidden><span id="whoName"></span> <button id="logout" class="link">Log out</button></div>
+  </header>
+
+  <main>
+    <section id="auth">
+      <h2>Raise your grades with a plan that fits your week</h2>
+      <p class="lede">Log in, enter your latest test scores and the hours you can study, and get a plan built for your courses.</p>
+      <div class="tabs" role="tablist">
+        <button id="tabLogin" role="tab" aria-selected="true">Log in</button>
+        <button id="tabRegister" role="tab" aria-selected="false">Create account</button>
+      </div>
+      <div class="field" id="nameField" hidden><label for="name">Name</label><input id="name" autocomplete="name"></div>
+      <div class="field"><label for="email">Email</label><input id="email" type="email" autocomplete="email"></div>
+      <div class="field"><label for="password">Password (8+ characters)</label><input id="password" type="password" autocomplete="current-password"></div>
+      <button id="authBtn" class="primary">Log in</button>
+      <p id="authMsg" class="msg" role="alert"></p>
+    </section>
+
+    <section id="dash" hidden>
+      <h2>Your latest tests</h2>
+      <div id="courses"></div>
+      <button id="addCourse" class="link">+ Add another course</button>
+      <div class="field narrow"><label for="hours">Hours you can study per week</label><input id="hours" type="number" min="1" max="100" value="10"></div>
+      <div class="field"><label for="notes">Anything else? (optional)</label><textarea id="notes" rows="2" placeholder="e.g. I work evenings, I struggle with word problems"></textarea></div>
+      <button id="planBtn" class="primary">Build my study plan</button>
+      <p id="planMsg" class="msg" role="alert"></p>
+
+      <article id="result" hidden>
+        <h2>Your plan</h2>
+        <div id="planText" class="plan"></div>
+      </article>
+
+      <details id="historyBox" hidden>
+        <summary>Past plans</summary>
+        <div id="history"></div>
+      </details>
+    </section>
+  </main>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="app.js"></script>
+</body>
+</html>
