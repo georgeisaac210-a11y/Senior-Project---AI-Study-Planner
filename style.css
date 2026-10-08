@@ -1,0 +1,40 @@
+:root {
+  --ink: #14213d;
+  --paper: #f6f8fb;
+  --line: #d5dce8;
+  --marker: #ffd84d;
+  --ok: #2f7d6d;
+  --err: #b3261e;
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--paper); color: var(--ink); font: 17px/1.6 "Newsreader", Georgia, serif; }
+h1, h2, button, label, summary { font-family: "Bricolage Grotesque", system-ui, sans-serif; }
+.top { display: flex; justify-content: space-between; align-items: center; padding: 14px 24px; background: var(--ink); color: #fff; }
+.top h1 { margin: 0; font-size: 1.15rem; }
+.top .link { color: #fff; }
+main { max-width: 680px; margin: 0 auto; padding: 32px 20px 64px; }
+h2 { font-size: 1.7rem; line-height: 1.2; margin: 0 0 12px; }
+.lede { margin: 0 0 24px; }
+.tabs { display: flex; gap: 8px; margin-bottom: 18px; }
+.tabs button { flex: 1; padding: 10px; border: 1px solid var(--line); background: #fff; color: var(--ink); cursor: pointer; border-radius: 6px; font-weight: 500; }
+.tabs button[aria-selected="true"] { background: var(--ink); color: #fff; border-color: var(--ink); }
+.field { margin-bottom: 14px; }
+.field.narrow { max-width: 260px; }
+label { display: block; font-size: .9rem; font-weight: 500; margin-bottom: 4px; }
+input, textarea { width: 100%; padding: 10px 12px; font: inherit; border: 1px solid var(--line); border-radius: 6px; background: #fff; color: var(--ink); }
+:focus-visible { outline: 3px solid var(--marker); outline-offset: 2px; }
+.primary { padding: 12px 22px; background: var(--ink); color: #fff; border: 0; border-radius: 6px; font-size: 1rem; font-weight: 500; cursor: pointer; }
+.primary:disabled { opacity: .6; cursor: wait; }
+.link { background: none; border: 0; padding: 0; color: var(--ink); text-decoration: underline; cursor: pointer; font-size: .95rem; }
+.row { display: grid; grid-template-columns: 2fr 1fr 1fr auto; gap: 10px; align-items: end; margin-bottom: 10px; }
+.row .rm { align-self: center; color: var(--err); }
+.msg { min-height: 1.4em; color: var(--err); margin: 12px 0 0; }
+.msg.ok { color: var(--ok); }
+#result { margin-top: 36px; padding: 24px; background: #fff; border: 1px solid var(--line); border-radius: 8px; }
+.plan { white-space: pre-wrap; max-width: 62ch; }
+.plan .h { display: inline; font-family: "Bricolage Grotesque", system-ui, sans-serif; font-weight: 700; background: linear-gradient(transparent 55%, var(--marker) 55%); }
+details { margin-top: 32px; }
+summary { cursor: pointer; font-weight: 500; }
+.past { margin: 14px 0; padding: 14px; border: 1px solid var(--line); border-radius: 6px; background: #fff; }
+.past small { color: #5a6784; }
+@media (max-width: 560px) { .row { grid-template-columns: 1fr 1fr; } .row .name { grid-column: 1 / -1; } }
